@@ -1,13 +1,15 @@
-package mankatha;
+package com.mankatha;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Deck {
 	private ArrayList<Card> cards = new ArrayList<Card>();
+	int rankCardNum = 4;
+	int suitCardNum = 13;
 	public Deck() {
-		for(int i = 1; i <= 4; i++) {
-			for(int j = 1; j <= 13; j++) {
+		for(int i = 1; i <= rankCardNum; i++) {
+			for(int j = 1; j <= suitCardNum; j++) {
 				this.cards.add(new Card(i, j));
 			}
 		}

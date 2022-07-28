@@ -1,4 +1,4 @@
-package mankatha;
+package com.mankatha;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -17,6 +17,8 @@ public class Game {
 			boolean hostDecided = false;
 			boolean playerWon = false;
 			ArrayList<Player> players = new ArrayList<Player>();
+			ArrayList<String> chosenCards = new ArrayList<String>();
+			try {
 			for (int i = 0; i < playersNum; i++) {
 				Player p;
 				boolean userHostStatus;
@@ -39,14 +41,20 @@ public class Game {
 				int userCoins = scn.nextInt();
 				scn.nextLine();
 				if (userHostStatus == false) {
-					System.out.println("Enter rank number you want to choose (1 - 4) : ");
-					int userRank = scn.nextInt();
-					System.out.println("Enter suit number you want to choose (1 - 13) : ");
-					int userSuit = scn.nextInt();
+					System.out.println("Enter card you want to choose : ");
+					String userCardName = scn.nextLine();
+					if (chosenCards.contains(userCardName))
+						throw new CardMatchException("This card has already been chosen by another player");
+					chosenCards.add(userCardName);
+					Card card = new Card();
+					Card userCard;
+					
+						userCard = card.nameToCard(userCardName);
+					
 					System.out.println("Enter the orientation you want to choose (IN/OUT) : ");
 					String userOrientation = scn.next();
 					scn.nextLine();
-					p = new Player(userName, userCoins, new Card(userRank, userSuit), userOrientation, userHostStatus);
+					p = new Player(userName, userCoins, userCard, userOrientation, userHostStatus);
 					players.add(p);
 				}
 				else {
@@ -119,6 +127,11 @@ public class Game {
 				if (opin.equals("N"))
 					play = false;
 			}
+		} 
+		catch (InvalidCardException | InsufficientCoinBalanceException | CardMatchException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+	}
 	}
 }

@@ -1,4 +1,4 @@
-package mankatha;
+package com.mankatha;
 
 public class Player {
 	private String name;
@@ -47,7 +47,9 @@ public class Player {
 	public void setChosenOrientation(String chosenOrientation) {
 		this.chosenOrientation = chosenOrientation;
 	}
-	public void bet(int coins) {
+	public void bet(int coins) throws InsufficientCoinBalanceException {
+		if (coins > this.coins)
+			throw new InsufficientCoinBalanceException("Your balance is less than your bet");
 		this.coins -= coins;
 	}
 	public void addWinnings(int coins) {
