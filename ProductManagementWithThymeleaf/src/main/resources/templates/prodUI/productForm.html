@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product form </title>
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<style>
+p {
+	font-size: 24px;
+	font-weight: 15px;
+}
+</style>
+</head>
+<body style="margin-top: 5%;">
+<div class="container">
+<form th:action="@{/product/saved}" th:object="${PRODUCT}" method="post">
+<p th:if="*{id} == null"> Add Product Details</p>
+<p th:if="*{id} != null">Update Product Details</p>
+<br>
+<div class="row">
+	<div class="col-sm-6">
+		<input type="hidden" name="id" th:field="*{id}"/>
+	</div>
+</div>
+&nbsp;
+<div class="row">
+	<div class="col-sm-3">
+		<label class="col-form-label">SKU</label>
+	</div>
+	<div class="col-sm-6">
+		<input type="text" name="sku" th:field="*{sku}" />
+	</div>
+</div>
+&nbsp;
+<div class="row">
+	<div class="col-sm-3">
+		<label class="col-label-form">Name</label>
+	</div>
+	<div class="col-sm-6">
+		<input type="text" name="name" th:field="*{name}" />
+	</div>
+</div>
+&nbsp;
+<div class="row">
+	<div class="col-sm-3">
+		<label class="col-form-label">Description</label>
+	</div>
+	<div class="col-sm-6">
+		<input type="text" name="description" th:field="*{description}" />
+	</div>
+</div>
+&nbsp;
+<div class="row">
+	<div class="col-sm-3">
+		<label class="col=form-label">Unit price</label>
+	</div>
+	<div class="col-sm-6">
+		<input type="text" name="unitprice" th:field="*{unitPrice}" />
+	</div>
+</div>
+&nbsp;
+<div class="row">
+	<div class="col-sm-3">
+		<label class="col-form-label">Image URL</label>
+	</div>
+	<div class="col-sm-6">
+		<input type="text" name="imageurl" th:field="*{imageUrl}" />
+	</div>
+</div>
+&nbsp;
+<div class="row">
+	<div class="col-sm-3">
+		<label class="col-form-label">Active</label>
+	</div>
+	<div class="col-sm-6">
+		<input type="text" name="active" th:field="*{active}" />
+	</div>
+</div>
+&nbsp;
+<div class="row">
+	<div class="col-sm-3">
+		<label class="col-form-label">Units in Stock</label>
+	</div>
+	<div class="col-sm-6">
+		<input type="text" name="unitsinstock" th:field="*{unitsInStock}" />
+	</div>
+</div>
+&nbsp;
+<div class="row">
+	<div class="col-sm-3">
+		<label class="col-form-label">Date created</label>
+	</div>
+	<div class="col-sm-6">
+		<input type="datetime" name="datecreated" th:field="*{dateCreated}" />
+	</div>
+</div>
+&nbsp;
+<div class="row">
+	<div class="col-sm-3">
+		<label class="col-form-label">Last updated</label>
+	</div>
+	<div class="col-sm-6">
+		<input type="datetime" name="lastupdated" th:field="*{lastUpdated}" />
+	</div>
+</div>
+&nbsp;
+<div class="row">
+	<div class="col-sm-3">
+		<label class="col-form-label">Category ID</label>
+	</div>
+	<div class="col-sm-6">
+		<select type="text" name="categoryid" th:field="*{categoryId}" />
+			<option value="10">Books</option>
+			<option value="11">Vehicles</option>
+			<option value="12">Stationery</option>
+		</select>
+	</div>
+</div>
+&nbsp;
+<div class="row">
+	<div class="col-sm-3">
+		<input type="submit" name="Submit" class="btn btn-dark" />
+	</div>
+	<div class="col-sm-6">
+		<input type="reset" name="Reset" class="btn btn-dark" />
+	</div>
+</div>
+&nbsp;
+<div class="row">
+	<div class="col-sm-3">
+		<a th:href="@{/employee/emplist}" class="btn btn-secondary">Back to Products list</a>
+	</div>
+</div>
+</form>
+</div>
+</body>
+</html>

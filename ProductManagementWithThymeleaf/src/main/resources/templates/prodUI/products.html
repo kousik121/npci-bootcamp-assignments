@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang = "en" xlmns : th = "https://www.thymeleaf.org/">
+<head>
+<title>Products list</title>
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<style>
+th {
+	text-align:center;
+}
+td {
+	text-align:center;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<a th:href="@{/product/addprod}" class="btn btn-success" style="margin-top: 5%;">Add Product</a><br>
+<br>
+<a th:href="@{/product/takesearch}" class="btn btn-success"> Search Product</a><br>
+<br>
+<a th:href="@{/product/takecategorysearch}" class="btn btn-success"> Search Product by category</a><br>
+&nbsp;
+<table class="table table-bordered" style="margin-top: 5%;">
+<tr class="table-dark">
+<th> ID </th>
+<th> SKU </th>
+<th>Product Name</th>
+<th> Description </th>
+<th> Unit price </th>
+<th>Image URL</th>
+<th> Active </th>
+<th> Units in Stock</th>
+<th> Date created </th>
+<th> Last updated </th>
+<th> Category ID </th>
+<th>Actions</th>
+
+</tr>
+
+<tr th:each = "prod : ${productslist}">
+<td th:text = "${prod.id}" />
+<td th:text = "${prod.sku}" />
+<td th:text = "${prod.name}" />
+<td th:text = "${prod.description}" />
+<td th:text = "${prod.unitPrice}" />
+<td th:text = "${prod.imageUrl}" />
+<td th:text = "${prod.active}" />
+<td th:text = "${prod.unitsInStock}" />
+<td th:text = "${prod.dateCreated}" />
+<td th:text = "${prod.lastUpdated}" />
+<td th:text = "${prod.categoryId}" />
+<td><a th:href="@{/product/update(id = *{prod.id})}" class="btn btn-primary" style="text-align: center;">Update</a>
+<a th:href="@{/product/delete(id = *{prod.id})}" class="btn btn-danger" style="text-align: center;">Delete</a>
+</td>
+</table>
+</div>
+</body>
+</html>
