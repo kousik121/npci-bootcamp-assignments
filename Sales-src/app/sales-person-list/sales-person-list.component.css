@@ -1,0 +1,17 @@
+table {
+    margin-top: 5%;
+}
+
+.container {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.goodSalary {
+    background-color: green;
+}
+.poorSalary {
+    background-color: red;
+}
+.mediumSalary {
+    background-color: yellow;
+}

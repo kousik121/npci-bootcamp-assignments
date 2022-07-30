@@ -1,0 +1,53 @@
+<div class="container">
+<table class="table table-bordered table-striped">
+    <tr>
+        <th style="text-align: center;">First name</th>
+        <th style="text-align: center;">Last name</th>
+        <th style="text-align: center;">Email</th>
+        <th style="text-align: center;">Salary</th>
+        <th style="text-align: center;">Sales volume</th>
+    </tr>
+    <tr *ngFor="let person of salesPersonList" style="text-align: center;" [ngClass] = "{'goodSalary' : person.salary >= 20000, 'mediumSalary' : person.salary > 10000 && person.salary < 20000, 'poorSalary' : person.salary <= 10000}">
+        <td>{{person.firstName}}</td>
+        <td>{{person.lastName}}</td>
+        <td>{{person.email}}</td>
+        <td>{{person.salary}}</td>
+        <td>{{person.salesVolume}}</td>
+    </tr>
+</table>
+
+<form #salesperson = "ngForm" (ngSubmit) = onSubmit()>
+
+    <div class="row">
+        <label class="col-sm-3">First name</label>
+        <div class="col-sm-6"><input type="text" name="firstname" [(ngModel)] = "formModel.firstName"/></div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <label class="col-sm-3">Last name</label>
+        <div class="col-sm-6"><input type="text" name="lastname" [(ngModel)] = "formModel.lastName"/></div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <label class="col-sm-3">Email ID</label>
+        <div class="col-sm-6"><input type="email" name="emailid" [(ngModel)] = "formModel.email"/></div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <label class="col-sm-3">Salary</label>
+        <div class="col-sm-6"><input type="text" name="salary" [(ngModel)] = "formModel.salary"/></div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <label class="col-sm-3">Sales volume</label>
+        <div class="col-sm-6"><input type="text" name="salesvolume" [(ngModel)] = "formModel.salesVolume"/></div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col-sm-3"><input type="submit" value="Submit" class="btn btn-primary"/></div><br>
+        &nbsp;
+        <div class="col-sm-6"><input type="submit" value="Reset" class="btn btn-secondary" /></div>
+    </div>
+</form>
+
+</div>
