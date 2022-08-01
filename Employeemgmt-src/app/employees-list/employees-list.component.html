@@ -1,0 +1,38 @@
+<div class="container" style="margin-top: 5%;">
+    <div class="row">
+        <div class="col-sm-3">
+            <button type="button" class="btn btn-primary" (click)="addEmployees()">Add employee</button><br>
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="table-responsive">
+    <table class="table table-bordered align-middle">
+        <thead>
+        <tr>
+            <th scope="col">Employee No </th>
+            <th scope="col"> Employee name </th>
+            <th scope="col"> Job </th>
+            <th scope="col"> Hire date </th>
+            <th scope="col"> Manager ID </th>
+            <th scope="col"> Salary </th>
+            <th scope="col"> Commission </th>
+            <th scope="col"> Department No </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor = "let employee of employees" style="text-align: center;">
+            <th scope="row">{{employee.empNo}}</th>
+            <td>{{employee.empName}}</td>
+            <td>{{employee.job}}</td>
+            <td>{{employee.hireDate}}</td>
+            <td>{{employee.managerId}}</td>
+            <td>{{employee.salary}}</td>
+            <td>{{employee.commission}}</td>
+            <td>{{employee.deptNo}}</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+
+</div>

@@ -1,0 +1,27 @@
+<div class="container" style="margin-top:5%">
+    <h4>Department Form</h4>
+    &nbsp;
+<form #department = "ngForm" (ngSubmit) = onSubmit()>
+
+    <div class="row">
+        <label class="col-sm-3">Department No</label>
+        <div class="col-sm-6"><input type="number" name="deptno" [(ngModel)] = "formModel.deptno"/></div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <label class="col-sm-3">Department name</label>
+        <div class="col-sm-6"><input type="text" name="dname" [(ngModel)] = "formModel.dname"/></div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <label class="col-sm-3">Location</label>
+        <div class="col-sm-6"><input type="text" name="location" [(ngModel)] = "formModel.location"/></div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col-sm-3"><input type="submit" value="Submit" class="btn btn-primary"/></div><br>
+        &nbsp;
+        <div class="col-sm-6"><input type="submit" value="Reset" class="btn btn-secondary" /></div>
+    </div>
+</form>
+</div>
