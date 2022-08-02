@@ -1,0 +1,53 @@
+<div class="container" style="margin-top:5%">
+    <h1>Products Grid</h1>
+    <div class="row">
+        <div class="col-sm-3">
+            <button type="button" class="btn btn-primary" (click)="addProducts()">Add Product</button><br>
+            &nbsp;
+        </div>
+        <div class="col-sm-3" style="margin-left: 50%;">
+            <a type="button" class="btn btn-success" href="">Home</a>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor = "let prod of products">
+        <div class="card">
+            <div class="col mx-auto text-center">
+            <img src="{{prod.imageUrl}}" style = "height : 300px; width:200px;" class="card-image-top;"/>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{prod.name}}</h5>
+                <p class="card-text"><b>{{prod.unitPrice | currency:"INR":true}}</b></p>
+                <p class="card-text"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">More</button></p>
+                <div class="modal" id="productModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Product details</h4>
+                            </div>
+                                <div class="modal-body">
+                                    <p><img src="{{prod.imageUrl}}" style="height: 200px; width: 200px;"></p>
+                                    <p>Product ID : {{prod.id}}</p>
+                                    <p>Product SKU : {{prod.sku}}</p>
+                                    <p>Description : {{prod.description}}</p>
+                                    <p>Active : {{prod.active}}</p>
+                                    <p>Units in stock : {{prod.unitsInStock}}</p>
+                                    <p>Date created : {{prod.dateCreated}}</p>
+                                    <p>Last updated : {{prod.lastUpdated}}</p>
+                                    <p>Category ID : {{prod.categoryId}}</p>
+                                </div>
+                                <div class="modal-footer" (click) = addToCart()>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                    <form class="form-label">
+                                        <button type="button" class="btn btn-primary">Add to cart</button>
+                                    </form> 
+                                </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        &nbsp;
+    </div>
+    </div>
+</div>
